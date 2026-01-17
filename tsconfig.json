@@ -13,13 +13,16 @@
 		"isolatedModules": true,
 		"jsx": "react-jsx",
 		"incremental": true,
+		"allowUnreachableCode": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
 		"plugins": [
 			{
 				"name": "next"
 			}
 		],
 		"paths": {
-			"@/*": ["./*"]
+			"@/*": ["./app/*"]
 		}
 	},
 	"include": [
