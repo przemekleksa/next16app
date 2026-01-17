@@ -1,12 +1,12 @@
 {
-  "name": "next15app",
+  "name": "next16app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint app --fix"
   },
   "dependencies": {
     "next": "16.1.3",
