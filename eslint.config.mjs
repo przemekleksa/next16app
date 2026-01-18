@@ -4,6 +4,7 @@ import nextTs from "eslint-config-next/typescript";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsparser from "@typescript-eslint/parser";
 import importPlugin from "eslint-plugin-import";
+import unusedImports from "eslint-plugin-unused-imports";
 import prettierConfig from "eslint-config-prettier";
 
 const eslintConfig = defineConfig([
@@ -13,6 +14,7 @@ const eslintConfig = defineConfig([
 		plugins: {
 			"@typescript-eslint": tseslint,
 			import: importPlugin,
+			"unused-imports": unusedImports,
 		},
 		languageOptions: {
 			parser: tsparser,
@@ -27,13 +29,52 @@ const eslintConfig = defineConfig([
 			...importPlugin.configs.typescript.rules,
 
 			// sort imports
-			"import/order": "error",
+			"import/order": [
+				"error",
+				{
+					groups: [
+						"builtin",
+						"external",
+						"internal",
+						["parent", "sibling"],
+						"index",
+						"object",
+						"type",
+					],
+					pathGroups: [
+						{
+							pattern: "@/**",
+							group: "internal",
+						},
+					],
+					pathGroupsExcludedImportTypes: ["builtin"],
+					"newlines-between": "never",
+					alphabetize: {
+						order: "asc",
+						caseInsensitive: true,
+					},
+				},
+			],
 
 			// no let exports
 			"import/no-mutable-exports": "error",
 
 			"import/no-cycle": "error",
 			"import/no-default-export": "error",
+
+			// remove unused imports
+			"no-unused-vars": "off",
+			"@typescript-eslint/no-unused-vars": "off",
+			"unused-imports/no-unused-imports": "error",
+			"unused-imports/no-unused-vars": [
+				"warn",
+				{
+					vars: "all",
+					varsIgnorePattern: "^_",
+					args: "after-used",
+					argsIgnorePattern: "^_",
+				},
+			],
 
 			"@typescript-eslint/consistent-type-imports": [
 				"error",

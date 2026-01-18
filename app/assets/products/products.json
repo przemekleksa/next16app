@@ -1,0 +1,42 @@
+[
+	{
+		"id": "1",
+		"name": "T-Shirt",
+		"category": "Ubrania",
+		"price": "9900",
+		"coverImage": {
+			"src": "/assets/images/tshirt.png",
+			"alt": "T-Shirt"
+		}
+	},
+	{
+		"id": "2",
+		"name": "Kubek",
+		"category": "Akcesoria",
+		"price": "2500",
+		"coverImage": {
+			"src": "/assets/images/green.png",
+			"alt": "Kubek"
+		}
+	},
+	{
+		"id": "3",
+		"name": "Bluza",
+		"category": "Ubrania",
+		"price": "14900",
+		"coverImage": {
+			"src": "/assets/images/yellow.png",
+			"alt": "Bluza"
+		}
+	},
+	{
+		"id": "4",
+		"name": "Czapka",
+		"category": "Akcesoria",
+		"price": "4500",
+		"coverImage": {
+			"src": "/assets/images/maroon.png",
+			"alt": "Czapka"
+		}
+	}
+]
