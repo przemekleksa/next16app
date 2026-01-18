@@ -17,21 +17,19 @@ const imageMap = {
 	"/assets/images/maroon.png": getSrc(maroon),
 };
 
-const products: ProductListItemDescProps["product"][] = productsData.map(
-	(product) => ({
-		...product,
-		coverImage: {
-			...product.coverImage,
-			src: imageMap[product.coverImage.src as keyof typeof imageMap],
-		},
-	}),
-);
+const products: ProductListItemDescProps["product"][] = productsData.map((product) => ({
+	...product,
+	coverImage: {
+		...product.coverImage,
+		src: imageMap[product.coverImage.src as keyof typeof imageMap],
+	},
+}));
 
 export const ProductList = () => {
 	return (
 		<ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			{products.map((product) => (
-				<ProductListItem key={product.id} product={product} />
+				<ProductListItem key={product.id} product={product} data-testid="products-list" />
 			))}
 		</ul>
 	);
