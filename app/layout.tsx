@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import ActiveLink from "@/ui/atoms/ActiveLink";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -24,10 +25,29 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				<div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black">
+			<body
+				className={`${geistSans.variable} ${geistMono.variable} bg-zinc-50 text-gray-200 antialiased dark:bg-black`}
+			>
+				<nav>
+					<ul className="mt-2 flex justify-center gap-4">
+						<li>
+							<ActiveLink href="/" styles="text-blue-500 hover:text-blue-600 hover:underline">
+								Home
+							</ActiveLink>
+						</li>
+						<li>
+							<ActiveLink
+								href="/products"
+								styles="text-blue-500 hover:text-blue-600 hover:underline"
+							>
+								Products
+							</ActiveLink>
+						</li>
+					</ul>
+				</nav>
+				<main className="mx-auto flex min-h-screen w-full max-w-7xl flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
 					{children}
-				</div>
+				</main>
 				<footer className="flex h-24 min-h-32 w-full items-center justify-center border-t">
 					<a
 						className="flex items-center justify-center text-sm text-gray-500 hover:underline dark:text-gray-400"

@@ -5,7 +5,11 @@ import { TestServer } from "@/ui/atoms/TestServer";
 const Page = async () => {
 	return (
 		<div className="row-auto flex flex-col gap-4">
-			<Link href="/test2" className="hover:underline">
+			<Link
+				href="/test2"
+				className="hover:underline"
+				// replace={true}
+			>
 				test2
 			</Link>
 			<ProductCounter>
