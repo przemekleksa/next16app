@@ -1,9 +1,15 @@
 export interface ProductListItemDescProps {
 	product: {
 		id: string;
-		name: string;
-		category: string;
+		title: string;
 		price: string;
-		coverImage: { src: string; alt: string };
+		description: string;
+		category: string;
+		rating: {
+			rate: number;
+			count: number;
+		};
+		image: string;
+		longDescription: string;
 	};
 }

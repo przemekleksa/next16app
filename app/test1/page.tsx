@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { ProductCounter } from "@/ui/atoms/ProductCounter";
 import { TestServer } from "@/ui/atoms/TestServer";
 
@@ -12,9 +13,11 @@ const Page = async () => {
 			>
 				test2
 			</Link>
-			<ProductCounter>
-				<TestServer />
-			</ProductCounter>
+			<Suspense fallback={<div>Loading...</div>}>
+				<ProductCounter>
+					<TestServer />
+				</ProductCounter>
+			</Suspense>
 		</div>
 	);
 };
